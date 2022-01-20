@@ -1,4 +1,5 @@
 # Learning Natural Language Processing (NLP)
+![illu_intro_NLP_blog-18-1](https://user-images.githubusercontent.com/33722914/150346520-1f10f67c-da13-40b4-8634-e76caa77e075.png)
 https://en.wikipedia.org/wiki/Natural_language_processing \
 Deep learning for text and language analysis
 
