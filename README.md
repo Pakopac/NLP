@@ -3,7 +3,7 @@
 https://en.wikipedia.org/wiki/Natural_language_processing \
 Deep learning for text and language analysis
 
-## Exercice 1
+## Exercice 1 - Recommandation
 ```
 Cas pratique : implémenter un algorithme de recommandation de film en
 python avec le dataset movies.csv :
@@ -59,6 +59,8 @@ sim_titanic = {k: v for k, v in sorted(sim_titanic.items(), key=lambda item: ite
 - Dictionary {id: sim_value} to retrieve indexes of movies after sorting 
 
 ## Exercice 2 - FastText
+![fasttext](https://user-images.githubusercontent.com/33722914/150753034-2a6d6b0b-6d25-4f5d-a8ef-868abd2a36a6.png)
+
 ```
 1.Se renseigner sur la librairie fasttext
 2.Aller sur colab et installer la librairie
