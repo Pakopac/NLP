@@ -56,3 +56,62 @@ sim_titanic = dict(enumerate(x for x in sim[id_titanic]))
 sim_titanic = {k: v for k, v in sorted(sim_titanic.items(), key=lambda item: item[1], reverse=True)}
 ```
 - Dictionary {id: sim_value} to retrieve indexes of movies after sorting 
+
+## Exercice 2 - FastText
+```
+1.Se renseigner sur la librairie fasttext
+2.Aller sur colab et installer la librairie
+3.Charger et nettoyer rapidement le dataset labeled_data.csv
+(https://drive.google.com/drive/folders/1GCWcIvE3ZipWiV8567CswTNUaNzce3sT?u
+sp=sharing )
+4.Se renseigner sur la manière de labelliser les data avec fasttext
+5.Entrainer un modele supervisé de fastext avec les data ci-dessus
+6.Afficher les mots que le modèle a appris
+7.Donner la représentation vectorielle du mot 'guy' à l’aide du modèle que vous avez
+entraîné ci-dessus.
+```
+- FastText is a NLP library for train model in text representation and text classification 
+```
+!git clone https://github.com/facebookresearch/fastText.git /content/drive/MyDrive/Colab_Notebooks/fastText
+!cd /content/drive/MyDrive/Colab_Notebooks/fastText; sudo pip install .
+```
+- Install fastText in colab
+
+```
+df = pd.read_csv(data_dir + 'labels.csv', usecols=['class', 'tweet'])
+df['tweet'] = df['tweet'].apply(lambda tweet: re.sub('[^A-Za-z]+', ' ', tweet.lower()))
+```
+- Clean dataset
+
+```
+df['class'] = '__label__' + df['class'].astype('str')
+```
+- Set \_\_label__ in front of our labels to labelize it
+
+```
+df.to_csv(r'/content/drive/My Drive/Colab_Notebooks/tweets_updated.txt', sep=' ', quoting=csv.QUOTE_NONE, escapechar=" ")
+```
+- Register our dataset with labels and text in txt file with to_csv function
+- sep: space character for separator
+- quoting = csv.QUOTE_NONE: deletes quotes
+- escapechar: delete space char
+
+```
+model = ft.train_supervised(input='/content/drive/My Drive/Colab_Notebooks/tweets_updated.txt')
+```
+- Train model
+
+```
+model.predict("hello my name is lilian")
+```
+- Make a prediction
+
+```
+model.words
+```
+- Get words learned by model
+
+```
+model.get_word_vector("guy")
+```
+- Get vector representation
